@@ -15,7 +15,7 @@ const BannerSection = () => {
         side by side, and put together the stack that fits your next project.
       </p>
       <div className="flex gap-4 justify-center md:justify-start">
-        <button className="bg-gradient-to-r from-pink-500 to-purple-500 to-purple-700 px-4 py-3 rounded-lg text-white font-bold cursor-pointer">Explore Technologies</button>
+        <button className="bg-gradient-to-r from-pink-500 to-purple-500 px-4 py-3 rounded-lg text-white font-bold cursor-pointer">Explore Technologies</button>
         <button className="border border-gray-300 px-12 py-3 rounded-lg cursor-pointer hover:bg-gray-200">Learn More</button>
       </div>
       </div>
