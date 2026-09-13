@@ -17,9 +17,7 @@ function Technologies({TechPromise}:TechPromiseProps) {
     <main className="md:px-20 block items-center">
       <div className="space-y-2">
         <h1 className="text-center text-3xl md:text-left ">
-          Explore the{" "}
-          <span className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-            Technologies
+          Explore the  <span className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Technologies
           </span>
         </h1>
         <p className=" text-center md:text-left text-gray-700 text-sm">Pick one technology per category to build your ideal stack.</p>
