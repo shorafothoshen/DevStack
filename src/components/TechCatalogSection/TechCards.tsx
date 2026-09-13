@@ -1,6 +1,26 @@
+import { useState, type Dispatch, type SetStateAction } from "react";
 import type { ITechType } from "../../Types/TechDataType";
 
-const TechCards = ({data}:{data:ITechType}) => {
+interface TechCardsProps{
+  data:ITechType
+  isSelectedObj:ITechType[]
+  setSelectedObj:Dispatch<SetStateAction<ITechType[]>>
+  // isCount:number
+  setCount:Dispatch<SetStateAction<number>>
+
+}
+
+const TechCards = ({data,isSelectedObj,setSelectedObj,setCount}:TechCardsProps) => {
+
+  const [isSelected,setSelected]=useState<boolean>(false);
+
+  const HandleSelected=(selection:ITechType)=>{
+   if(!isSelectedObj.includes(selection)){
+    setSelectedObj(prev=>[...prev,selection])
+    setCount(cnt=>cnt+1);
+    setSelected(true);
+   }
+  }
   return (
    <div className="p-6 card flex flex-col gap-4 border rounded-lg w-95 md:w-full md:h-full shadow-sm">
       <div className="flex justify-between items-start">
@@ -27,7 +47,10 @@ const TechCards = ({data}:{data:ITechType}) => {
         <h1 className="text-sm">⭐ {data.rating}</h1>
       </div>
 
-      <button className="bg-black text-white font-medium rounded-lg py-3 w-full mt-auto">
+      <button onClick={()=>HandleSelected(data)}
+       className="bg-black text-white font-medium rounded-lg py-3 w-full mt-auto cursor-pointer disabled:cursor-not-allowed disabled:opacity-20"
+        disabled={isSelected}
+      >
         Add to Stack
       </button>
     </div>
