@@ -1,5 +1,6 @@
-import { useState, type Dispatch, type SetStateAction } from "react";
+import { type Dispatch, type SetStateAction } from "react";
 import type { ITechType } from "../../Types/TechDataType";
+import { toast,Bounce } from 'react-toastify';
 
 interface TechCardsProps{
   data:ITechType
@@ -12,13 +13,30 @@ interface TechCardsProps{
 
 const TechCards = ({data,isSelectedObj,setSelectedObj,setCount}:TechCardsProps) => {
 
-  const [isSelected,setSelected]=useState<boolean>(false);
+  let isThisSelected = false;
+  for (let i=0;i<isSelectedObj.length;i++) {
+    if (isSelectedObj[i].id===data.id) {
+      isThisSelected = true;
+      break;
+    }
+  }
 
   const HandleSelected=(selection:ITechType)=>{
    if(!isSelectedObj.includes(selection)){
     setSelectedObj(prev=>[...prev,selection])
     setCount(cnt=>cnt+1);
-    setSelected(true);
+
+    toast.success(`${selection.name} has been added to your Technology Stack!`, {
+                  position: "top-center",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: false,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+                  transition: Bounce,
+              });
    }
   }
   return (
@@ -49,7 +67,7 @@ const TechCards = ({data,isSelectedObj,setSelectedObj,setCount}:TechCardsProps) 
 
       <button onClick={()=>HandleSelected(data)}
        className="bg-black text-white font-medium rounded-lg py-3 w-full mt-auto cursor-pointer disabled:cursor-not-allowed disabled:opacity-20"
-        disabled={isSelected}
+        disabled={isThisSelected}
       >
         Add to Stack
       </button>

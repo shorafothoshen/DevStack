@@ -33,7 +33,7 @@ function Technologies({TechPromise}:TechPromiseProps) {
             </div>
         </div>
         <div className="md:col-span-1">
-             <StackCard isCount={isCount} setCount={setCount} isSelected={isSelected}/>
+             <StackCard isCount={isCount} setCount={setCount} isSelected={isSelected} setSelected={setSelected}/>
         </div>
       </div>
     </main>
