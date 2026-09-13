@@ -33,7 +33,7 @@ function StackCard({ isCount, setCount, isSelected, setSelected }: StackProps) {
   const HandleRemoveAll = () => {
     setSelected([]);
     setCount(0);
-    toast.warn(`Removed All from your stack.`, {
+    toast.warn(`Removed All stack.`, {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -47,7 +47,7 @@ function StackCard({ isCount, setCount, isSelected, setSelected }: StackProps) {
   };
 
   return (
-    <div className="w-full flex flex-col gap-3 border border-gray-700 rounded-md p-5">
+    <div className="w-94 md:w-full flex flex-col gap-3 border-2 border-gray-700 rounded-md p-5">
       <div className="flex flex-col gap-1">
         <h1 className="font-medium text-2xl">Your Stack</h1>
         <p className="text-gray-500">

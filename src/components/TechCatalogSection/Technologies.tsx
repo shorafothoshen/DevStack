@@ -24,15 +24,15 @@ function Technologies({TechPromise}:TechPromiseProps) {
         </h1>
         <p className=" text-center md:text-left text-gray-700 text-sm">Pick one technology per category to build your ideal stack.</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-10 justify-items-center md:justify-items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-10">
         <div className="md:col-span-3">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch ">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch justify-items-center md:justify-items-stretch">
                 {TechData.map((data:ITechType)=>(
                   <TechCards key={data.id} data={data} isSelectedObj={isSelected} setSelectedObj={setSelected} setCount={setCount} />
                 ))}
             </div>
         </div>
-        <div className="md:col-span-1">
+        <div className="md:col-span-1 justify-items-center">
              <StackCard isCount={isCount} setCount={setCount} isSelected={isSelected} setSelected={setSelected}/>
         </div>
       </div>

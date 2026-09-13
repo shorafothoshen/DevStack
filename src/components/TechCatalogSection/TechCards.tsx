@@ -1,6 +1,7 @@
 import { type Dispatch, type SetStateAction } from "react";
 import type { ITechType } from "../../Types/TechDataType";
 import { toast,Bounce } from 'react-toastify';
+import { FaCheck } from "react-icons/fa";
 
 interface TechCardsProps{
   data:ITechType
@@ -13,10 +14,10 @@ interface TechCardsProps{
 
 const TechCards = ({data,isSelectedObj,setSelectedObj,setCount}:TechCardsProps) => {
 
-  let isThisSelected = false;
+  let isSelected = false;
   for (let i=0;i<isSelectedObj.length;i++) {
     if (isSelectedObj[i].id===data.id) {
-      isThisSelected = true;
+      isSelected = true;
       break;
     }
   }
@@ -39,15 +40,16 @@ const TechCards = ({data,isSelectedObj,setSelectedObj,setCount}:TechCardsProps) 
               });
    }
   }
+
   return (
-   <div className="p-6 card flex flex-col gap-4 border rounded-lg w-95 md:w-full md:h-full shadow-sm">
+   <div className={`p-6 card flex flex-col gap-4 border-2 ${isSelected?'border-pink-500':'border-green-400'} rounded-lg w-95 md:w-full md:h-full shadow-sm`}>
       <div className="flex justify-between items-start">
         <img
           className="w-10"
           src={data.icon}
           alt={data.icon}
         />
-        <h1 className="bg-blue-50 text-blue-500 text-sm font-medium rounded-full px-3 py-1">
+        <h1 className={`${data.color} text-sm font-medium rounded-full px-3 py-1`}>
           {data.badge}
         </h1>
       </div>
@@ -66,11 +68,10 @@ const TechCards = ({data,isSelectedObj,setSelectedObj,setCount}:TechCardsProps) 
       </div>
 
       <button onClick={()=>HandleSelected(data)}
-       className="bg-black text-white font-medium rounded-lg py-3 w-full mt-auto cursor-pointer disabled:cursor-not-allowed disabled:opacity-20"
-        disabled={isThisSelected}
+       className={`${isSelected?'bg-pink-300/20 text-pink-600':'bg-black text-white'} font-medium rounded-lg py-3 w-full mt-auto cursor-pointer disabled:cursor-not-allowed`}
+        disabled={isSelected}
       >
-        Add to Stack
-      </button>
+        {isSelected?(<><FaCheck className="inline mr-2" />Added to Stack</>):"Add to Stack"}</button>
     </div>
   );
 };

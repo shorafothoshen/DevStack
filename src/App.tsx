@@ -3,6 +3,7 @@ import BannerSection from "./components/BannerSection";
 import NavBar from "./components/NavBar";
 import Technologies from "./components/TechCatalogSection/Technologies";
 import type { ITechType } from "./Types/TechDataType";
+import Footer from "./components/Footer";
 
 const TechFetchData=async():Promise<ITechType[]>=>{
     const res=await fetch('/data.json');
@@ -23,6 +24,7 @@ function App() {
         <Suspense>
           <Technologies TechPromise={TechPromise} />
         </Suspense>
+        <Footer/>
       </div>
     </>
   );
