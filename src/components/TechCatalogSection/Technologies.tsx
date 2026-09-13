@@ -1,6 +1,8 @@
 import { use } from "react";
 import type { ITechType } from "../../Types/TechDataType";
 import TechCards from "./TechCards";
+import StackCard from "./StackCard";
+
 
 interface TechPromiseProps{
     TechPromise:Promise<ITechType[]>
@@ -21,16 +23,16 @@ function Technologies({TechPromise}:TechPromiseProps) {
         </h1>
         <p className=" text-center md:text-left text-gray-700 text-sm">Pick one technology per category to build your ideal stack.</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-12">
-        <div className="md:col-span-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 items-center">
-                {TechData.map((data:ITechType,ind:number)=>(
-                  <TechCards key={ind} data={data}/>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-10 justify-items-center md:justify-items-stretch">
+        <div className="md:col-span-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch ">
+                {TechData.map((data:ITechType)=>(
+                  <TechCards key={data.id} data={data}/>
                 ))}
             </div>
         </div>
-        <div className="md:col-span-4">
-
+        <div className="md:col-span-1">
+             <StackCard/>
         </div>
       </div>
     </main>

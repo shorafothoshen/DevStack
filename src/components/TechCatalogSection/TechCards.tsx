@@ -1,14 +1,13 @@
 import type { ITechType } from "../../Types/TechDataType";
 
 const TechCards = ({data}:{data:ITechType}) => {
-    console.log(data)
   return (
-   <div className="p-6 card flex flex-col gap-4 border rounded-lg w-80 shadow-sm">
+   <div className="p-6 card flex flex-col gap-4 border rounded-lg w-95 md:w-full md:h-full shadow-sm">
       <div className="flex justify-between items-start">
         <img
           className="w-10"
           src={data.icon}
-          alt=""
+          alt={data.icon}
         />
         <h1 className="bg-blue-50 text-blue-500 text-sm font-medium rounded-full px-3 py-1">
           {data.badge}
@@ -28,7 +27,7 @@ const TechCards = ({data}:{data:ITechType}) => {
         <h1 className="text-sm">⭐ {data.rating}</h1>
       </div>
 
-      <button className="bg-black text-white font-medium rounded-lg py-3 w-full">
+      <button className="bg-black text-white font-medium rounded-lg py-3 w-full mt-auto">
         Add to Stack
       </button>
     </div>
