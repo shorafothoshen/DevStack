@@ -36,7 +36,7 @@ Ans:In react, the core difference in that <br>
 *props:*are used to pass data from parent component down to a child component<br>
 *state*:is used to manage data locally within the component itself.<br><br>
 <h3>3.What does the useState hook do, and where did you use it in this project?
-</h3><br>Ans:The useState hook lets your React app remember and update information on the screen. When the data changes, React automatically refreshes the page to show the new look.<br><br>
+</h3><br>Ans:The useState hook lets your React app remember and update information on the screen. When the data changes, React automatically refreshes the page to show the new look. In this project, it is used in <b>App.tsx</b> to store the fetched technology data (<code>TechData</code>) and the loading status (<code>isLoading</code>), and in <b>Technologies.tsx</b> to keep track of the selected technologies (<code>isSelected</code>) and the selected count (<code>isCount</code>).<br><br>
 <h3>4.What does the useEffect hook do, and why did you need it to load the JSON data?</h3><br>Ans:The useEffect hook performs side effects like fetching data immediately after a component loads on the screen. It is required here to safely load the JSON data only once when the app opens, preventing an infinite re-rendering loop that would crash your application.<br><br>
 <h3>5.Why does every item in a .map() list need a unique key prop?</h3><br>
 Ans:The key prop gives each item a unique identity so React knows exactly which one changed, was added, or got removed. It allows React to update only that specific item instantly, making your application faster and preventing display bugs.<br><br>
