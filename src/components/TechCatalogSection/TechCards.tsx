@@ -1,14 +1,9 @@
 import type { ITechType } from "../../Types/TechDataType";
 
-interface TechCardProps{
-    TechData:ITechType[]
-}
-
-const TechCards = ({TechData}:TechCardProps) => {
-    console.log(TechData)
+const TechCards = ({data}:{data:ITechType}) => {
+    console.log(data)
   return (
-    TechData.map(data=>{
-      <div className="p-6 card flex flex-col gap-4 border rounded-lg w-80 shadow-sm">
+   <div className="p-6 card flex flex-col gap-4 border rounded-lg w-80 shadow-sm">
       <div className="flex justify-between items-start">
         <img
           className="w-10"
@@ -28,16 +23,15 @@ const TechCards = ({TechData}:TechCardProps) => {
       </div>
 
       <div className="flex justify-between items-center">
-        <h1 className="bg-gray-200 text-sm px-2 py-1 rounded-md">Frontend</h1>
-        <h1 className="text-gray-500 text-sm">Beginner-Friendly</h1>
-        <h1 className="text-sm">⭐ 4.9</h1>
+        <h1 className="bg-gray-200 text-sm px-2 py-1 rounded-md">{data.category}</h1>
+        <h1 className="text-gray-500 text-sm">{data.difficulty}</h1>
+        <h1 className="text-sm">⭐ {data.rating}</h1>
       </div>
 
       <button className="bg-black text-white font-medium rounded-lg py-3 w-full">
         Add to Stack
       </button>
     </div>
-    })
   );
 };
 

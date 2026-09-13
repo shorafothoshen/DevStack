@@ -24,7 +24,9 @@ function Technologies({TechPromise}:TechPromiseProps) {
       <div className="grid grid-cols-1 md:grid-cols-12">
         <div className="md:col-span-8">
             <div className="grid grid-cols-1 md:grid-cols-3 items-center">
-                <TechCards TechData={TechData}/>
+                {TechData.map((data:ITechType,ind:number)=>(
+                  <TechCards key={ind} data={data}/>
+                ))}
             </div>
         </div>
         <div className="md:col-span-4">
