@@ -12,7 +12,6 @@ function Technologies({TechData,isLoading}:TechPromiseProps) {
     const [isCount, setCount]=useState<number>(0);
     const [isSelected, setSelected]=useState<ITechType[]>([]);
 
-
   return (
     <main className="md:px-20 block items-center">
       <div className="space-y-2">

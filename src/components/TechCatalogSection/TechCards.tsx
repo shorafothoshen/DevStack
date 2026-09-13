@@ -79,12 +79,7 @@ const TechCards = ({TechData,isSelectedObj,setSelectedObj,setCount,isLoading}: T
           className={`${HandleIsSelecteded(data.id) ? "bg-pink-300/20 text-pink-600" : "bg-black text-white"} font-medium rounded-lg py-3 w-full mt-auto cursor-pointer disabled:cursor-not-allowed`}
           disabled={HandleIsSelecteded(data.id)}
         >
-          {HandleIsSelecteded(data.id) ? (
-            <>
-              <FaCheck className="inline mr-2" />
-              Added to Stack
-            </>
-          ) : (
+          {HandleIsSelecteded(data.id) ? (<><FaCheck className="inline mr-2" />Added to Stack</>) : (
             "Add to Stack"
           )}
         </button>
