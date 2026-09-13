@@ -1,17 +1,17 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import type { ITechType } from "../../Types/TechDataType";
 import TechCards from "./TechCards";
 import StackCard from "./StackCard";
 interface TechPromiseProps{
-    TechPromise:Promise<ITechType[]>
+    TechData:ITechType[]
+    isLoading:boolean
 }
 
-function Technologies({TechPromise}:TechPromiseProps) {
-    const TechData=use(TechPromise);
+function Technologies({TechData,isLoading}:TechPromiseProps) {
 
     const [isCount, setCount]=useState<number>(0);
     const [isSelected, setSelected]=useState<ITechType[]>([]);
-    console.log(isSelected)
+
 
   return (
     <main className="md:px-20 block items-center">
@@ -24,10 +24,8 @@ function Technologies({TechPromise}:TechPromiseProps) {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-10">
         <div className="md:col-span-3">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch justify-items-center md:justify-items-stretch">
-                {TechData.map((data:ITechType)=>(
-                  <TechCards key={data.id} data={data} isSelectedObj={isSelected} setSelectedObj={setSelected} setCount={setCount} />
-                ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch justify-items-center md:justify-items-stretch">  
+                  <TechCards TechData={TechData} isSelectedObj={isSelected} setSelectedObj={setSelected} setCount={setCount} isLoading={isLoading}/>
             </div>
         </div>
         <div className="md:col-span-1 justify-items-center">

@@ -1,21 +1,23 @@
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import BannerSection from "./components/BannerSection";
 import NavBar from "./components/NavBar";
 import Technologies from "./components/TechCatalogSection/Technologies";
 import type { ITechType } from "./Types/TechDataType";
 import Footer from "./components/Footer";
 
- const TechFetchData = async (): Promise<ITechType[]> => {
-      const res = await fetch("/data.json");
-      const data = await res.json();
-      return data;
-  };
-
 function App() {
+  const [TechData, setTechData]=useState<ITechType[]>([]);
+  const [isLoading, setLoading]=useState<boolean>(true);
 
- 
-
-  const TechPromise = TechFetchData();
+  useEffect(()=>{
+    const FetchData=async()=>{
+      const res=await fetch('/data.json');
+      const data=await res.json();
+      setTechData(data);
+      setLoading(false);
+    }
+    FetchData();
+  },[])
 
   return (
     <>
@@ -23,7 +25,7 @@ function App() {
         <NavBar />
         <BannerSection />
         <Suspense fallback={<><h1 className="flex justify-center items-center px-20 text-3xl">Loading.....</h1></>}> 
-          <Technologies TechPromise={TechPromise} /> 
+          <Technologies TechData={TechData} isLoading={isLoading}/> 
         </Suspense>
         <Footer />
       </div>
