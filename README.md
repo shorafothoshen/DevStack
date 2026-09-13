@@ -15,9 +15,11 @@ DevStack is a modern, responsive web app that helps developers explore popular w
 
 ## Key Features
 
--**Browse & Explore Technologies** — A responsive grid of technology cards loaded dynamically from a JSON file.
--**Build Your Own Stack** — Add technologies to a personal "Your Stack" panel with a single click. Duplicate additions are blocked, and buttons update instantly to show "✓ Added to Stack." Remove individual items or clear the entire stack at once.
--**Real-Time Feedback & Loading States** — Toast notifications confirm every add/remove action, while a spinner shows while technology data is being fetched.
+-**Browse & Explore Technologies**-A responsive grid of technology cards loaded dynamically from a JSON file.
+
+-**Build Your Own Stack**-Add technologies to a personal "Your Stack" panel with a single click. Duplicate additions are blocked, and buttons update instantly to show "✓ Added to Stack." Remove individual items or clear the entire stack at once.
+
+-**Real-Time Feedback & Loading States**-Toast notifications confirm every add/remove action, while a spinner shows while technology data is being fetched.
 
 ## Live Link
   https://dev-stack-ruddy.vercel.app/
